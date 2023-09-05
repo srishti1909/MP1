@@ -5,9 +5,9 @@ def tokens_lowercase(doc):
     #lowercases, removes words with less than 2 and more than 5  characters. 
     #performs stemming and creates trigrams (name the final call to ana.analyze as "trigrams")
     #Write a token stream that tokenizes with ICUTokenizer (use the argument "suppress_tags=True"),
-    tokenizer = metapy.analyzers.ICUTokenizer(suppress_tags=True)
+    tok = metapy.analyzers.ICUTokenizer(suppress_tags=True)
     #lowercases, removes words with less than 2 and more than 5  characters
-    lowercase_filter = metapy.analyzers.LowercaseFilter(tokenizer)
+    lowercase_filter = metapy.analyzers.LowercaseFilter(tok)
     length_filter = metapy.analyzers.LengthFilter(lowercase_filter, min=2, max=5)
     #performs stemming and creates trigrams (name the final call to ana.analyze as "trigrams")
     stemmer = metapy.analyzers.Porter2Filter(length_filter)
